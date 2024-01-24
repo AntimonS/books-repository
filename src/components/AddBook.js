@@ -24,7 +24,7 @@ function AddBook() {
     <>
       <Header action="Add" />
 
-      <div className=" flex justify-center">
+      <div className=" flex justify-center ">
         <Form onSubmit={handleSubmit}>
           <Input
             label="Title"
@@ -46,7 +46,7 @@ function AddBook() {
             onChange={(e) => setPages(e.target.value)}
             value={pages}
           />
-          <Button>Add</Button>
+          <Button>Submit New Book</Button>
         </Form>
       </div>
     </>
