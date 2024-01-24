@@ -20,27 +20,14 @@ function BookShow({ book }) {
   };
 
   let content = (
-    <div class="card mb-3">
-      <div class="row g-0">
-        <div class="row g-0">
-          <div class="card">
-            <div class="col-md-4">
-              <img
-                src={`http://picsum.photos/seed/${book.id}/300/200`}
-                class="img-fluid img-thumbnail"
-                alt="..."
-              />
-            </div>
-            <div class="col-md-8">
-              <div class="card-body bg">
-                <h5 class="card-title">{book.title}</h5>
-                <p class="card-text">{book.author}</p>
-              </div>
-
-              <small class="text-muted ">Pages:{book.pages}</small>
-            </div>
-          </div>
+    <div>
+      <div>
+        <div>
+          <h5>{book.title}</h5>
+          <p>{book.author}</p>
         </div>
+
+        <small>Pages:{book.pages}</small>
       </div>
     </div>
   );
@@ -50,14 +37,10 @@ function BookShow({ book }) {
   }
 
   return (
-    <div class="container   mt-3 ">
+    <div>
       {content}
-      <button class="btn btn-success " onClick={handleEditClick}>
-        Edit
-      </button>
-      <button class="btn btn-danger " onClick={handleDeleteClick}>
-        Delete
-      </button>
+      <button onClick={handleEditClick}>Edit</button>
+      <button onClick={handleDeleteClick}>Delete</button>
     </div>
   );
 }

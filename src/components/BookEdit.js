@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useContext } from "react";
 import BooksContext from "../context/books";
+import Input from "./Input";
+import Header from "./Header";
 
 function BookEdit({ book, onSubmit }) {
   const [title, setTitle] = useState(book.title);
@@ -8,61 +10,35 @@ function BookEdit({ book, onSubmit }) {
   const [pages, setPages] = useState(book.pages);
   const { handleEditBookById } = useContext(BooksContext);
 
-  const handleChangeTitle = (e) => {
-    e.preventDefault();
-    setTitle(e.target.value);
-  };
-
-  const handleChangeAuthor = (e) => {
-    e.preventDefault();
-    setAuthor(e.target.value);
-  };
-
-  const handleChangePages = (e) => {
-    e.preventDefault();
-    setPages(e.target.value);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     handleEditBookById(book.id, title, author, pages);
-
     onSubmit();
   };
 
   return (
     <div>
-      <form class="form-control" onSubmit={handleSubmit}>
-        <div class="input-group mb-3">
-          <label class="input-group-text">Title</label>
-          <input
-            class=" form-control-sm"
-            onChange={handleChangeTitle}
-            value={title}
-          />
-        </div>
+      <Header action="Edit" />
+      <form onSubmit={handleSubmit}>
+        <Input
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+          label="Title"
+        />
 
-        <div class="input-group mb-3">
-          <label class="input-group-text">Author</label>
-          <input
-            class=" form-control-sm"
-            className="input"
-            onChange={handleChangeAuthor}
-            value={author}
-          />
-        </div>
+        <Input
+          onChange={(e) => setAuthor(e.target.value)}
+          value={author}
+          label="Author"
+        />
+        <Input
+          onChange={(e) => setPages(e.target.value)}
+          value={pages}
+          label="Pages"
+          type="number"
+        />
 
-        <div class="input-group mb-3">
-          <label class="input-group-text">Pages</label>
-          <input
-            class=" form-control-sm"
-            type="number"
-            className="input"
-            onChange={handleChangePages}
-            value={pages}
-          />
-        </div>
-        <button class="btn btn-primary btn-sm mb-2 mt-2">Save</button>
+        <button>Save</button>
       </form>
     </div>
   );

@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useContext } from "react";
 import BooksContext from "../context/books";
+import Input from "./Input";
+import Header from "./Header";
 
 function AddBook() {
   const [title, setTitle] = useState("");
@@ -8,21 +10,6 @@ function AddBook() {
   const [pages, setPages] = useState(0);
 
   const { handleAddBook } = useContext(BooksContext);
-
-  const handleChangeTitle = (e) => {
-    e.preventDefault();
-    setTitle(e.target.value);
-  };
-
-  const handleChangeAuthor = (e) => {
-    e.preventDefault();
-    setAuthor(e.target.value);
-  };
-
-  const handleChangePages = (e) => {
-    e.preventDefault();
-    setPages(e.target.value);
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,37 +20,36 @@ function AddBook() {
   };
 
   return (
-    <div class="container ">
-      <form onSubmit={handleSubmit}>
-        <div class="input-group sticky-top">
-          <label class="input-group-text">Add a Book</label>
-
-          <input
-            type="text"
-            onChange={handleChangeTitle}
+    <>
+      <Header action="Add" />
+      <div className="flex justify-center border">
+        <form onSubmit={handleSubmit}>
+          <Input
+            label="Title"
+            onChange={(e) => setTitle(e.target.value)}
             value={title}
             placeholder="Enter a Title"
-            class="form-control"
           />
 
-          <input
-            type="text"
-            onChange={handleChangeAuthor}
+          <Input
+            label="Author"
+            onChange={(e) => setAuthor(e.target.value)}
             value={author}
             placeholder="Enter an Author"
-            class="form-control"
           />
 
-          <input
-            class="form-cotrol"
+          <Input
+            label="Pages"
             type="number"
-            onChange={handleChangePages}
+            onChange={(e) => setPages(e.target.value)}
             value={pages}
           />
-          <button class="btn btn-success btn-sm">Add</button>
-        </div>
-      </form>
-    </div>
+          <div className="flex flex-col my-5 size-1">
+            <button>Add</button>
+          </div>
+        </form>
+      </div>
+    </>
   );
 }
 
