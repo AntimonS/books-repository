@@ -1,18 +1,21 @@
 function Input({ label, type = "text", ...props }) {
+  let inputCssStyle =
+    " border border-solid   border-slate-800 rounded  required p-2 ";
+  if (type === "number") {
+    inputCssStyle += " w-12";
+  } else {
+    inputCssStyle += " w-96";
+  }
+
   return (
-    <div>
-      <div className="flex flex-col  items-center  my-1 	">
-        <label htmlFor={label} className="cursor-pointer">
+    <div className="flex flex-row justify-start">
+      <div className="flex flex-col  py-2 ">
+        <label htmlFor={label} className=" hover:underline cursor-pointer mt-1">
           {label}
         </label>
-      </div>
-      <div className="size-1/4	">
-        <input
-          id={label}
-          type={type}
-          className=" border-solid border  border-slate-700 rounded w-96 required"
-          {...props}
-        />
+        <div className="size-4/6">
+          <input className={inputCssStyle} id={label} type={type} {...props} />
+        </div>
       </div>
     </div>
   );

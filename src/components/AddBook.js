@@ -1,8 +1,9 @@
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import BooksContext from "../context/books";
 import Input from "./Input";
 import Header from "./Header";
+import Form from "./Form";
+import Button from "./Button";
 
 function AddBook() {
   const [title, setTitle] = useState("");
@@ -22,8 +23,9 @@ function AddBook() {
   return (
     <>
       <Header action="Add" />
-      <div className="flex justify-center border">
-        <form onSubmit={handleSubmit}>
+
+      <div className=" flex justify-center">
+        <Form onSubmit={handleSubmit}>
           <Input
             label="Title"
             onChange={(e) => setTitle(e.target.value)}
@@ -44,10 +46,8 @@ function AddBook() {
             onChange={(e) => setPages(e.target.value)}
             value={pages}
           />
-          <div className="flex flex-col my-5 size-1">
-            <button>Add</button>
-          </div>
-        </form>
+          <Button>Add</Button>
+        </Form>
       </div>
     </>
   );
