@@ -1,24 +1,30 @@
 import { useContext } from "react";
 import BooksContext from "../context/books";
 
-function Table() {
+function Table({ config }) {
   const { books } = useContext(BooksContext);
-  const renderedBooksInfo = books.map((book) => (
-    <tr className="border-b" key={book.id}>
-      <td className="p-3">{book.title}</td>
-      <td className="p-3">{book.author}</td>
-      <td className="p-3">{book.pages}</td>
-    </tr>
+
+  const renderedHeaders = config.map((columnConfig) => (
+    <th key={columnConfig.label}>{columnConfig.label}</th>
   ));
+
+  const renderedBooksInfo = books.map((rowData) => {
+    const renderedCells = config.map((column) => (
+      <td key={column.label} className="p-2">
+        {column.render(rowData)}
+      </td>
+    ));
+    return (
+      <tr className="border-b" key={rowData.id}>
+        {renderedCells}
+      </tr>
+    );
+  });
 
   return (
     <table className="table-auto border-spacing-2">
       <thead>
-        <tr className="border-b-2">
-          <th>Title</th>
-          <th>Author</th>
-          <th>Pages</th>
-        </tr>
+        <tr className="border-b-2">{renderedHeaders}</tr>
       </thead>
       <tbody>{renderedBooksInfo}</tbody>
     </table>
