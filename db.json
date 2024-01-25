@@ -1,12 +1,6 @@
 {
   "books": [
     {
-      "title": "Harry Potter",
-      "author": "J.K.Rowluing",
-      "pages": "234",
-      "id": 1
-    },
-    {
       "title": "asSD",
       "author": "ADD",
       "pages": 0,
@@ -45,12 +39,6 @@
     {
       "title": "",
       "author": "",
-      "pages": "",
-      "id": 8
-    },
-    {
-      "title": "",
-      "author": "",
       "pages": 0,
       "id": 9
     },
@@ -59,6 +47,12 @@
       "author": "",
       "pages": "0",
       "id": 10
+    },
+    {
+      "title": "Harry Potter",
+      "author": "J.K.Rowling",
+      "pages": "1222",
+      "id": 11
     }
   ]
 }

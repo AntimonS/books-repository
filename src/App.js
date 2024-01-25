@@ -2,7 +2,7 @@ import "./index.css";
 //import BookList from "./components/BookList";
 import { useEffect, useContext } from "react";
 import BooksContext from "./context/books";
-//import AddBook from "./components/AddBook";*/
+import AddBook from "./components/AddBook";
 import TablePage from "./pages/TablePage";
 
 export default function App() {
@@ -15,6 +15,7 @@ export default function App() {
 
   return (
     <div>
+      <AddBook />
       <TablePage />
     </div>
   );

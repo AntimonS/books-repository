@@ -2,7 +2,7 @@ function Input({ label, type = "text", ...props }) {
   let inputCssStyle =
     " border border-solid   border-slate-800 rounded  required p-2 my-2 ";
   if (type === "number") {
-    inputCssStyle += " w-12";
+    inputCssStyle += " w-20";
   } else {
     inputCssStyle += " w-96	";
   }
