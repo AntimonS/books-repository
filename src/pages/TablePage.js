@@ -1,6 +1,10 @@
+import { useContext } from "react";
+import BooksContext from "../context/books";
 import SortableTable from "../components/SortableTable";
 
 function TablePage() {
+  const { books } = useContext(BooksContext);
+
   const config = [
     {
       label: "Title",
@@ -25,7 +29,7 @@ function TablePage() {
 
   return (
     <div>
-      <SortableTable config={config} keyFn={keyFn} />
+      <SortableTable books={books} config={config} keyFn={keyFn} />
     </div>
   );
 }

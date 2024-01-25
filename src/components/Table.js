@@ -8,10 +8,10 @@ function Table({ config, keyFn }) {
   const renderedHeaders = config.map((columnConfig) => {
     if (columnConfig.header) {
       return (
-        <Fragment key={columnConfig.label}> {columnConfig.header()}</Fragment>
+        <Fragment key={columnConfig.label}>{columnConfig.header()}</Fragment>
       );
     }
-    return <th key={columnConfig.label}>{columnConfig.label}</th>;
+    return <th key={columnConfig.id}>{columnConfig.label}</th>;
   });
 
   const renderedBooksInfo = books.map((rowData) => {
