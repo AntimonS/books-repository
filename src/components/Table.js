@@ -1,10 +1,6 @@
-import { useContext } from "react";
-import BooksContext from "../context/books";
 import { Fragment } from "react";
 
-function Table({ config, keyFn }) {
-  const { books } = useContext(BooksContext);
-
+function Table({ config, keyFn, books }) {
   const renderedHeaders = config.map((columnConfig) => {
     if (columnConfig.header) {
       return (

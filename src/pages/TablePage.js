@@ -7,24 +7,24 @@ function TablePage() {
 
   const config = [
     {
-      label: "Title",
+      label: "Name",
       render: (book) => book.title,
       sortValue: (book) => book.title,
     },
     {
       label: "Author",
       render: (book) => book.author,
-      sortValue: (book) => book.title,
+      sortValue: (book) => book.author,
     },
     {
       label: "Pages",
       render: (book) => book.pages,
-      sortValue: (book) => book.title,
+      sortValue: (book) => book.pages,
     },
   ];
 
   const keyFn = (book) => {
-    return book.id;
+    return book.title;
   };
 
   return (
