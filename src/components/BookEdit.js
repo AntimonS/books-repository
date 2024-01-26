@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useContext } from "react";
 import BooksContext from "../context/books";
+import Button from "./Button";
 import Input from "./Input";
 import Header from "./Header";
 
@@ -18,7 +19,7 @@ function BookEdit({ book, onSubmit }) {
 
   return (
     <div>
-      <Header action="Edit" />
+      <Header header="Edit" />
       <form onSubmit={handleSubmit}>
         <Input
           onChange={(e) => setTitle(e.target.value)}
@@ -38,7 +39,7 @@ function BookEdit({ book, onSubmit }) {
           type="number"
         />
 
-        <button>Save</button>
+        <Button>Save</Button>
       </form>
     </div>
   );

@@ -22,7 +22,7 @@ function AddBook() {
 
   return (
     <>
-      <Header action="Add" />
+      <Header header="Add" />
 
       <div className=" flex justify-center ">
         <Form onSubmit={handleSubmit}>

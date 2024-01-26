@@ -3,7 +3,7 @@ import BookList from "./components/BookList";
 import { useEffect, useContext } from "react";
 import BooksContext from "./context/books";
 //import AddBook from "./components/AddBook";
-import TablePage from "./pages/TablePage";
+//import TablePage from "./pages/TablePage";
 
 export default function App() {
   const { fetchBooks } = useContext(BooksContext);
@@ -15,8 +15,8 @@ export default function App() {
 
   return (
     <div>
-      <TablePage />
+      <BookList />
     </div>
   );
 }
-// />
+// <TablePage />
