@@ -12,23 +12,19 @@ function Table({ config, keyFn, books }) {
 
   const renderedBooksInfo = books.map((rowData) => {
     const renderedCells = config.map((column) => (
-      <td key={column.label} className="p-2">
+      <td key={column.label} className="p-4 text-2xl border-2 shadow-md">
         {column.render(rowData)}
       </td>
     ));
-    return (
-      <tr className="border-b" key={keyFn(rowData)}>
-        {renderedCells}
-      </tr>
-    );
+    return <tr key={keyFn(rowData)}>{renderedCells}</tr>;
   });
 
   return (
-    <table className="table-auto border-spacing-2">
+    <table className="table-auto border-spacing-4">
       <thead>
-        <tr className="border-b-2">{renderedHeaders}</tr>
+        <tr>{renderedHeaders}</tr>
       </thead>
-      <tbody>{renderedBooksInfo}</tbody>
+      <tbody className="border-4">{renderedBooksInfo}</tbody>
     </table>
   );
 }

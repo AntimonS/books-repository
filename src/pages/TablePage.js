@@ -24,12 +24,17 @@ function TablePage() {
   ];
 
   const keyFn = (book) => {
-    return book.title;
+    return book.id;
   };
 
   return (
     <div>
-      <SortableTable books={books} config={config} keyFn={keyFn} />
+      <div className="flex flex-row justify-center my-4 p-3 text-4xl shadow-md">
+        <h2>All Books</h2>
+      </div>
+      <div className="flex flex-row justify-center">
+        <SortableTable books={books} config={config} keyFn={keyFn} />
+      </div>
     </div>
   );
 }

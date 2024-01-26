@@ -34,10 +34,10 @@ function SortableTable(props) {
       ...column,
       header: () => (
         <th
-          className="cursor-pointer hover:bg-gray-100"
+          className="cursor-pointer hover:bg-gray-100 text-2xl border-4"
           onClick={() => handleClick(column.label)}
         >
-          <div className="flex items-center">
+          <div className="flex items-center p-1">
             {getIcons(column.label, sortBy, sortOrder)}
             {column.label}
           </div>
