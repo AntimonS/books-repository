@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import BooksContext from "../context/books";
+//import Table from "../components/Table";
 import SortableTable from "../components/SortableTable";
 
 function TablePage() {
@@ -20,6 +21,10 @@ function TablePage() {
       label: "Pages",
       render: (book) => book.pages,
       sortValue: (book) => book.pages,
+    },
+    {
+      label: "Actions",
+      render: (book) => book.actions,
     },
   ];
 

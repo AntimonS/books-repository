@@ -5,7 +5,7 @@ import Header from "./Header";
 import TablePage from "../pages/TablePage";
 import BooksContext from "../context/books";
 
-function BookShow({ book }) {
+function BookList({ book }) {
   const { handleDeleteBookById, books } = useContext(BooksContext);
 
   const [showEdit, setShowEdit] = useState(false);
@@ -46,15 +46,4 @@ function BookShow({ book }) {
   );
 }
 
-export default BookShow;
-
-/*  <div>
-      <div>
-        <div>
-          <h5>{book.title}</h5>
-          <p>{book.author}</p>
-        </div>
-
-        <small>Pages:{book.pages}</small>
-      </div>
-    </div>*/
+export default BookList;

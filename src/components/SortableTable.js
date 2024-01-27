@@ -1,12 +1,13 @@
 import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
-
-import { useState } from "react";
+import { useState, useContext } from "react";
+import BooksContext from "../context/books";
 import Table from "./Table";
 
 function SortableTable(props) {
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setSortBy] = useState(null);
   const { config, books } = props;
+  const { handleDeleteBookById, handleEditBookById } = useContext(BooksContext);
 
   const handleClick = (label) => {
     if (sortBy && label !== sortBy) {

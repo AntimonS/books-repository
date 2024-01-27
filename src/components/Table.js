@@ -1,13 +1,21 @@
 import { Fragment } from "react";
+import { useState } from "react";
 
 function Table({ config, keyFn, books }) {
+  const [isEdit, setIsEdit] = useState(false);
+
   const renderedHeaders = config.map((columnConfig) => {
-    if (columnConfig.header) {
+    if (columnConfig.header && columnConfig.label !== "Actions") {
       return (
         <Fragment key={columnConfig.label}>{columnConfig.header()}</Fragment>
       );
     }
-    return <th key={columnConfig.id}>{columnConfig.label}</th>;
+
+    return (
+      <th key={columnConfig.id} className="text-2xl border-4">
+        {columnConfig.label}
+      </th>
+    );
   });
 
   const renderedBooksInfo = books.map((rowData) => {
