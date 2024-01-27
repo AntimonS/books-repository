@@ -6,6 +6,7 @@ import AddBook from "./components/AddBook";
 import TablePage from "./pages/TablePage";
 //import Table from "./components/Table";
 import Link from "./components/Link";
+import Route from "./components/Route";
 
 export default function App() {
   const { fetchBooks } = useContext(BooksContext);
@@ -19,6 +20,14 @@ export default function App() {
     <div>
       <Link to="/addBook">Go to addBook</Link>
       <Link to="/table">Go to table </Link>
+      <div>
+        <Route path="/addBook">
+          <AddBook />
+        </Route>
+        <Route path="/table">
+          <TablePage />
+        </Route>
+      </div>
     </div>
   );
 }
