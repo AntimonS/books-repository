@@ -14,7 +14,11 @@ function Navbar() {
     );
   });
 
-  return <div className="sticky flex items-center"> {renderedLinks}</div>;
+  return (
+    <div className="grid grid-cols-6 gap-4 border border-solid rounded-xl mb-3 bg-stone-400">
+      {renderedLinks}
+    </div>
+  );
 }
 
 export default Navbar;

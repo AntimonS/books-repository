@@ -1,6 +1,6 @@
 function Header({ header, ...props }) {
   let headerStyle =
-    "flex flex-col items-center  py-5 mb-6 text-4xl text-teal-900	 shadow-md shadow-zinc-500 bg-indigo-300	font-medium";
+    "flex flex-col items-center  py-5 mb-6 text-4xl text-orange-800	shadow-md shadow-zinc-500 bg-blue-400 font-medium";
   if (props.className) {
     headerStyle += "" + props.className;
   }

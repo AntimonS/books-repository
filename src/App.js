@@ -5,9 +5,9 @@ import BooksContext from "./context/books";
 import AddBook from "./components/AddBook";
 import TablePage from "./pages/TablePage";
 //import Table from "./components/Table";
-import Link from "./components/Link";
 import Route from "./components/Route";
 import Navbar from "./components/Navbar";
+import ModalPage from "./pages/ModalPage";
 
 export default function App() {
   const { fetchBooks } = useContext(BooksContext);
@@ -20,7 +20,6 @@ export default function App() {
   return (
     <div>
       <Navbar />
-
       <div>
         <Route path="/addBook">
           <AddBook />
@@ -29,6 +28,7 @@ export default function App() {
           <TablePage />
         </Route>
       </div>
+      <ModalPage />
     </div>
   );
 }

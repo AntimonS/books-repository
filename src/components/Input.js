@@ -18,7 +18,7 @@ function Input({ label, type = "text", ...props }) {
             {label}
           </label>
         </div>
-        <input className={inputCssStyle} id={label} type={type} {...props} />
+        <input {...props} className={inputCssStyle} id={label} type={type} />
       </div>
     </div>
   );

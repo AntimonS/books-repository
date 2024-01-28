@@ -3,7 +3,10 @@ import UseBooks from "../hooks/use-books";
 function Link({ to, children, ...props }) {
   const { navigate } = UseBooks();
 
-  const linkCssStyle = "text-blue-500";
+  let linkCssStyle = "text-blue-500 text-2xl p-4 font-semibold hover:underline";
+  if (props.className) {
+    linkCssStyle += "" + props.className;
+  }
 
   const handleClick = (evt) => {
     if (evt.metaKEy || evt.ctrlKey) {
