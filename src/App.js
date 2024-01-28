@@ -7,6 +7,7 @@ import TablePage from "./pages/TablePage";
 //import Table from "./components/Table";
 import Link from "./components/Link";
 import Route from "./components/Route";
+import Navbar from "./components/Navbar";
 
 export default function App() {
   const { fetchBooks } = useContext(BooksContext);
@@ -18,8 +19,8 @@ export default function App() {
 
   return (
     <div>
-      <Link to="/addBook">Go to addBook</Link>
-      <Link to="/table">Go to table </Link>
+      <Navbar />
+
       <div>
         <Route path="/addBook">
           <AddBook />

@@ -1,5 +1,5 @@
-import { useState, useContext } from "react";
-import BooksContext from "../context/books";
+import UseBooks from "../hooks/use-books";
+import { useState } from "react";
 import Input from "./Input";
 import Header from "./Header";
 import Form from "./Form";
@@ -10,7 +10,7 @@ function AddBook() {
   const [author, setAuthor] = useState("");
   const [pages, setPages] = useState(0);
 
-  const { handleAddBook } = useContext(BooksContext);
+  const { handleAddBook } = UseBooks();
 
   const handleSubmit = (e) => {
     e.preventDefault();

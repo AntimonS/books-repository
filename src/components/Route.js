@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import BooksContext from "../context/books";
+import UseBooks from "../hooks/use-books";
 
 function Route({ path, children }) {
-  const { currentPath } = useContext(BooksContext);
+  const { currentPath } = UseBooks();
 
   if (path === currentPath) {
     return children;

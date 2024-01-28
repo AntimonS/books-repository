@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useContext } from "react";
-import BooksContext from "../context/books";
+import UseBooks from "../hooks/use-books";
 import Button from "./Button";
 import Input from "./Input";
 import Header from "./Header";
@@ -10,7 +9,7 @@ function BookEdit({ book, onSubmit }) {
   const [title, setTitle] = useState(book.title);
   const [author, setAuthor] = useState(book.author);
   const [pages, setPages] = useState(book.pages);
-  const { handleEditBookById } = useContext(BooksContext);
+  const { handleEditBookById } = UseBooks();
 
   const handleSubmit = (e) => {
     e.preventDefault();

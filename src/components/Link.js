@@ -1,8 +1,10 @@
-import { useContext } from "react";
-import BooksContext from "../context/books";
+import UseBooks from "../hooks/use-books";
 
-function Link({ to, children }) {
-  const { navigate } = useContext(BooksContext);
+function Link({ to, children, ...props }) {
+  const { navigate } = UseBooks();
+
+  const linkCssStyle = "text-blue-500";
+
   const handleClick = (evt) => {
     if (evt.metaKEy || evt.ctrlKey) {
       return;
@@ -12,7 +14,7 @@ function Link({ to, children }) {
   };
 
   return (
-    <a href={to} onClick={handleClick}>
+    <a {...props} href={to} className={linkCssStyle} onClick={handleClick}>
       {children}
     </a>
   );

@@ -1,8 +1,8 @@
 import { Fragment } from "react";
-import { useState } from "react";
+//import { useState } from "react";
 
 function Table({ config, keyFn, books }) {
-  const [isEdit, setIsEdit] = useState(false);
+  //const [isEdit, setIsEdit] = useState(false);
 
   const renderedHeaders = config.map((columnConfig) => {
     if (columnConfig.header && columnConfig.label !== "Actions") {
@@ -18,12 +18,15 @@ function Table({ config, keyFn, books }) {
     );
   });
 
+  //const renderedActions=config.map()
+
   const renderedBooksInfo = books.map((rowData) => {
     const renderedCells = config.map((column) => (
       <td key={column.label} className="p-4 text-2xl border-2 shadow-md">
         {column.render(rowData)}
       </td>
     ));
+
     return <tr key={keyFn(rowData)}>{renderedCells}</tr>;
   });
 

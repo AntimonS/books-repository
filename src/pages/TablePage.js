@@ -1,10 +1,9 @@
-import { useContext } from "react";
-import BooksContext from "../context/books";
+import UseBooks from "../hooks/use-books";
 //import Table from "../components/Table";
 import SortableTable from "../components/SortableTable";
 
 function TablePage() {
-  const { books } = useContext(BooksContext);
+  const { books } = UseBooks();
 
   const config = [
     {

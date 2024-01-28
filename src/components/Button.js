@@ -6,7 +6,7 @@ function Button({ children, ...props }) {
   }
 
   return (
-    <button className={buttonCssStyle} {...props}>
+    <button {...props} className={buttonCssStyle}>
       {children}
     </button>
   );
