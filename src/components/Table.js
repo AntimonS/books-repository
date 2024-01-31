@@ -22,7 +22,7 @@ function Table({ config, keyFn, books }) {
 
   const renderedBooksInfo = books.map((rowData) => {
     const renderedCells = config.map((column) => (
-      <td key={column.label} className="p-4 text-2xl border-2 shadow-md ">
+      <td key={column.label} className="p-4 text-2xl border-2 shadow-md">
         {column.render(rowData)}
       </td>
     ));
@@ -31,7 +31,7 @@ function Table({ config, keyFn, books }) {
   });
 
   return (
-    <table className="table-auto border-spacing-4 ">
+    <table className="table-auto border-spacing-4">
       <thead>
         <tr>{renderedHeaders}</tr>
       </thead>

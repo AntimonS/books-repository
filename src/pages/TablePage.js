@@ -17,9 +17,9 @@ function TablePage() {
       sortValue: (book) => book.author,
     },
     {
-      label: "Pages",
-      render: (book) => book.pages,
-      sortValue: (book) => book.pages,
+      label: "Rating",
+      render: (book) => book.rating,
+      sortValue: (book) => book.rating,
     },
     {
       label: "Actions",

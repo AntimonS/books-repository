@@ -8,12 +8,12 @@ import Form from "./Form";
 function BookEdit({ book, onSubmit }) {
   const [title, setTitle] = useState(book.title);
   const [author, setAuthor] = useState(book.author);
-  const [pages, setPages] = useState(book.pages);
-  const { handleEditBookById } = UseBooks();
+  const [rating, setRating] = useState(book.rating);
+  const { handleEditBookById, books } = UseBooks();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleEditBookById(book.id, title, author, pages);
+    handleEditBookById(book.id, title, author, rating);
     onSubmit();
   };
 
@@ -34,10 +34,9 @@ function BookEdit({ book, onSubmit }) {
             label="Author"
           />
           <Input
-            onChange={(e) => setPages(e.target.value)}
-            value={pages}
-            label="Pages"
-            type="number"
+            onChange={(e) => setRating(e.target.value)}
+            value={rating}
+            label="Rating"
           />
 
           <Button>Save</Button>

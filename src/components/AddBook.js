@@ -8,16 +8,17 @@ import Button from "./Button";
 function AddBook() {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
-  const [pages, setPages] = useState(0);
+  const [rating, setRating] = useState("");
 
   const { handleAddBook } = UseBooks();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAddBook(title, author, pages);
+    handleAddBook(title, author, rating);
+    
     setTitle("");
     setAuthor("");
-    setPages(0);
+    setRating("");
   };
 
   return (
@@ -41,12 +42,12 @@ function AddBook() {
           />
 
           <Input
-            label="Pages"
-            type="number"
-            onChange={(e) => setPages(e.target.value)}
-            value={pages}
+            label="Rating"
+            type="select"
+            onChange={(e) => setRating(e.target.value)}
+            value={rating}
           />
-          <Button>Submit New Book</Button>
+          <Button>Add A Book</Button>
         </Form>
       </div>
     </>

@@ -3,7 +3,7 @@ import Link from "./Link";
 function Navbar() {
   const links = [
     { label: "New Book", path: "/addBook" },
-    { label: "Books List", path: "/table" },
+    { label: "Books List", path: "/allbooks" },
   ];
 
   const renderedLinks = links.map((link) => {

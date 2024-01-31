@@ -1,14 +1,11 @@
 import "./index.css";
-import BookList from "./components/BookList";
+import BookEdit from "./components/BookEdit";
 import { useEffect, useContext } from "react";
 import BooksContext from "./context/books";
 import AddBook from "./components/AddBook";
-import TablePage from "./pages/TablePage";
-//import Table from "./components/Table";
 import Route from "./components/Route";
 import Navbar from "./components/Navbar";
-import ModalPage from "./pages/ModalPage";
-
+import BookList from "./components/BookList";
 export default function App() {
   const { fetchBooks } = useContext(BooksContext);
 
@@ -24,13 +21,10 @@ export default function App() {
         <Route path="/addBook">
           <AddBook />
         </Route>
-        <Route path="/table">
-          <TablePage />
+        <Route path="/allbooks">
+          <BookList />
         </Route>
       </div>
-      <ModalPage />
     </div>
   );
 }
-/*  <AddBook />
-<TablePage />*/

@@ -1,45 +1,34 @@
 {
   "books": [
     {
-      "title": "I.B.Mažuranić",
-      "author": "Šuma Striborova",
-      "pages": "150",
-      "actions": "",
-      "id": 2
-    },
-    {
-      "title": "New York Trilogy",
-      "author": "Paul Auster",
-      "pages": "334",
-      "actions": "",
-      "id": 5
+      "title": "Blitva",
+      "author": "Miroslav Krleža",
+      "rating": "Good",
+      "id": 3
     },
     {
       "title": "Harry Potter",
       "author": "J.K.Rowling",
-      "pages": 1222,
-      "actions": "",
-      "id": 11
+      "rating": "Bad",
+      "id": 4
     },
     {
-      "title": "Kultura Laži",
-      "author": "Dubravka Ugrešić",
-      "pages": "563",
-      "actions": "",
-      "id": 12
+      "title": "Anđeo u ofsajdu",
+      "author": "Zoran Ferić",
+      "rating": "Great",
+      "id": 5
     },
     {
-      "title": "Mali Princ",
-      "author": " Antoine de Saint-Exupéry",
-      "pages": "102",
-      "actions": "",
-      "id": 13
+      "title": "Mjesečeva Palača",
+      "author": "Paul Auster",
+      "rating": "Great",
+      "id": 6
     },
     {
-      "title": "Gospoda Glembajevi",
-      "author": "Miroslav Krleža",
-      "pages": "567",
-      "id": 14
+      "title": "Alamut",
+      "author": "Vladimir Bartol",
+      "rating": "Bad",
+      "id": 7
     }
   ]
 }

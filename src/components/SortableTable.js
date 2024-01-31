@@ -1,13 +1,13 @@
 import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
 import { useState } from "react";
-import UseBooks from "../hooks/use-books";
+//import UseBooks from "../hooks/use-books";
 import Table from "./Table";
 
 function SortableTable(props) {
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setSortBy] = useState(null);
   const { config, books } = props;
-  const { handleDeleteBookById, handleEditBookById } = UseBooks();
+  //const { handleDeleteBookById, handleEditBookById } = UseBooks();
 
   const handleClick = (label) => {
     if (sortBy && label !== sortBy) {
@@ -62,7 +62,6 @@ function SortableTable(props) {
         return (valueA - valueB) * reversedOrder;
       }
     });
-    console.log(sortedBooks);
   }
   return <Table {...props} books={sortedBooks} config={updatedConfig} />;
 }

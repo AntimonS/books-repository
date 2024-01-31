@@ -1,29 +1,22 @@
-import ReactDOM from "react-dom";
-import { useEffect } from "react";
+import { useState } from "react";
+import UseBooks from "../hooks/use-books";
+import Button from "./Button";
+import Input from "./Input";
+import Form from "./Form";
 
-function Modal({ onClose, children, actionBar }) {
-  useEffect(() => {
-    document.body.classList.add("overflow-hidden");
-    return () => {
-      document.body.classList.remove("overflow-hidden");
-    };
-  }, []);
+function Modal() {
+  const [showModal, setShowModal] = useState(false);
 
-  return ReactDOM.createPortal(
-    <div>
-      <div
-        className="fixed inset-0 bg-gray-300 opacity-80"
-        onClick={onClose}
-      ></div>
-      <div className="fixed inset-60 p-10 bg-white">
-        <div className="flex flex-col justify-between h-full">
-          {children}
-          <div className="flex justify-end">{actionBar}</div>
-        </div>
-      </div>
-    </div>,
-    document.querySelector(".modal-container")
+  return (
+    <div className=" flex justify-center ">
+      <Form>
+        <Input label="Title" />
+        <Input label="Author" />
+        <Input type="select" label="Rating" />
+        <Button>Save</Button>
+        <Button>Cancel</Button>
+      </Form>
+    </div>
   );
 }
-
 export default Modal;
