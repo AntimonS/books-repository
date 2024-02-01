@@ -26,6 +26,9 @@ function Provider({ children }) {
     const response = await axios.get("http://localhost:3001/books");
     setBooks(response.data);
   }, []);
+
+  //sorting function:
+
   /*
   const searchBooks = async (term, id) => {
     const response = await axios.get(`http://localhost:3001/books/${id}`, {
@@ -61,12 +64,11 @@ function Provider({ children }) {
     setBooks(updatedBooks);
   };
 
-  const handleAddBook = async (title, author, rating, actions) => {
+  const handleAddBook = async (title, author, rating) => {
     const response = await axios.post("http://localhost:3001/books", {
       title,
       author,
       rating,
-      actions,
     });
 
     const updatedBooks = [...books, response.data];

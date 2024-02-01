@@ -12,7 +12,6 @@ export default function App() {
   useEffect(() => {
     fetchBooks();
   }, [fetchBooks]);
-  <h1>Reading List:</h1>;
 
   return (
     <div>

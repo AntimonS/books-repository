@@ -1,15 +1,9 @@
-import {
-  GoPencil,
-  GoTrashcan,
-  GoTriangleDown,
-  GoTriangleUp,
-} from "react-icons/go";
-import UseBooks from "../hooks/use-books";
 import { useState } from "react";
-import BookEdit from "./BookEdit";
+import TableBody from "./TableBody";
+import UseBooks from "../hooks/use-books";
 
 function Table2() {
-  const { handleDeleteBookById, books } = UseBooks();
+  const { books } = UseBooks();
   const [isEditing, setIsEditing] = useState(false);
   const [sortOrder, setSortOrder] = useState(null);
 
@@ -40,28 +34,6 @@ function Table2() {
     setIsEditing(false);
   };
 
-  const tableBody = books.map((book) => {
-    return (
-      <tr key={book.id}>
-        <td className={tableDataCss}>{book.title}</td>
-        <td className={tableDataCss}>{book.author}</td>
-        <td className={tableDataCss}>{book.rating}</td>
-
-        <td className="flex items-center">
-          <span className="p-4 cursor-pointer" onClick={handleEditClick}>
-            <GoPencil />
-          </span>
-          <span
-            className="p-4 cursor-pointer"
-            onClick={() => handleDeleteBookById(book.id)}
-          >
-            <GoTrashcan />
-          </span>
-        </td>
-      </tr>
-    );
-  });
-
   // isEditing && <BookEdit book={books} onSubmit={handleSubmitEdit} />;
 
   return (
@@ -77,39 +49,10 @@ function Table2() {
             <th className={tableDataCss}>Action</th>
           </tr>
         </thead>
-        <tbody className=" text-2xl border-4">{tableBody}</tbody>
+        <TableBody tableDataCss={tableDataCss} />
       </table>
     </div>
   );
 }
 
 export default Table2;
-
-/*
-const items = [
-  { name: "Edward", value: 21 },
-  { name: "Sharpe", value: 37 },
-  { name: "And", value: 45 },
-  { name: "The", value: -12 },
-  { name: "Magnetic", value: 13 },
-  { name: "Zeros", value: 37 },
-];
-
-// sort by value
-items.sort((a, b) => a.value - b.value);
-
-// sort by name
-items.sort((a, b) => {
-  const nameA = a.name.toUpperCase(); // ignore upper and lowercase
-  const nameB = b.name.toUpperCase(); // ignore upper and lowercase
-  if (nameA < nameB) {
-    return -1;
-  }
-  if (nameA > nameB) {
-    return 1;
-  }
-
-  // names must be equal
-  return 0;
-});
-*/

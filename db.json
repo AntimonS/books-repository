@@ -1,34 +1,22 @@
 {
   "books": [
     {
-      "title": "Blitva",
-      "author": "Miroslav Krleža",
-      "rating": "Good",
-      "id": 3
-    },
-    {
-      "title": "Harry Potter",
-      "author": "J.K.Rowling",
+      "title": "Alamut",
+      "author": "Vladimir Bartol",
       "rating": "Bad",
-      "id": 4
-    },
-    {
-      "title": "Anđeo u ofsajdu",
-      "author": "Zoran Ferić",
-      "rating": "Great",
-      "id": 5
+      "id": 7
     },
     {
       "title": "Mjesečeva Palača",
       "author": "Paul Auster",
       "rating": "Great",
-      "id": 6
+      "id": 8
     },
     {
-      "title": "Alamut",
-      "author": "Vladimir Bartol",
-      "rating": "Bad",
-      "id": 7
+      "title": "Harry Potter",
+      "author": "J.K.Rowling",
+      "rating": "Good",
+      "id": 9
     }
   ]
 }
