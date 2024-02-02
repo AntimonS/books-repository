@@ -9,7 +9,7 @@ function BookEdit({ book, onSubmit }) {
   const [title, setTitle] = useState(book.title);
   const [author, setAuthor] = useState(book.author);
   const [rating, setRating] = useState(book.rating);
-  const { handleEditBookById, books } = UseBooks();
+  const { handleEditBookById } = UseBooks();
 
   const handleSubmit = (e) => {
     e.preventDefault();

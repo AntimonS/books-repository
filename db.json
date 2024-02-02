@@ -7,16 +7,22 @@
       "id": 7
     },
     {
-      "title": "Mjesečeva Palača",
-      "author": "Paul Auster",
-      "rating": "Great",
-      "id": 8
-    },
-    {
       "title": "Harry Potter",
       "author": "J.K.Rowling",
       "rating": "Good",
       "id": 9
+    },
+    {
+      "title": "Mjesečeva Palača ",
+      "author": "Paul Auster",
+      "rating": "Great",
+      "id": 10
+    },
+    {
+      "title": "Šuma Striborova",
+      "author": "I.B.Mažuranić",
+      "rating": "Great",
+      "id": 11
     }
   ]
 }

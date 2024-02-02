@@ -2,7 +2,7 @@ import { Fragment } from "react";
 //import { useState } from "react";
 
 function Table({ config, keyFn, books }) {
-  //const [isEdit, setIsEdit] = useState(false);
+
 
   const renderedHeaders = config.map((columnConfig) => {
     if (columnConfig.header && columnConfig.label !== "Actions") {
@@ -17,8 +17,6 @@ function Table({ config, keyFn, books }) {
       </th>
     );
   });
-
-  //const renderedActions=config.map()
 
   const renderedBooksInfo = books.map((rowData) => {
     const renderedCells = config.map((column) => (

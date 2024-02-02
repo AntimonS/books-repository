@@ -7,6 +7,8 @@ import Form from "./Form";
 function Modal() {
   const [showModal, setShowModal] = useState(false);
 
+  const handleClick = () => setShowModal(false);
+
   return (
     <div className=" flex justify-center ">
       <Form>
@@ -14,7 +16,7 @@ function Modal() {
         <Input label="Author" />
         <Input type="select" label="Rating" />
         <Button>Save</Button>
-        <Button>Cancel</Button>
+        <Button onClick={handleClick}>Cancel</Button>
       </Form>
     </div>
   );

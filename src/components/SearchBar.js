@@ -17,9 +17,15 @@ function SearchBar() {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Input onChange={handleChange} placeholder="search books" />
-    </Form>
+    <div className="grid justify-items-center ">
+      <Form onSubmit={handleSubmit}>
+        <Input
+          onChange={handleChange}
+          placeholder="search books"
+          value={term}
+        />
+      </Form>
+    </div>
   );
 }
 

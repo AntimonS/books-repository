@@ -6,19 +6,23 @@ import Form from "./Form";
 import Button from "./Button";
 
 function AddBook() {
-  const [title, setTitle] = useState("");
-  const [author, setAuthor] = useState("");
-  const [rating, setRating] = useState("");
-
   const { handleAddBook } = UseBooks();
+  const [bookData, setBookData] = useState({
+    title: "",
+    author: "",
+    rating: "",
+  });
+
+  const handleIputChange = (identifier, value) => {
+    setBookData((prevData) => ({
+      ...prevData,
+      [identifier]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleAddBook(title, author, rating);
-    
-    setTitle("");
-    setAuthor("");
-    setRating("");
+    handleAddBook(bookData.title, bookData.author, bookData.rating);
   };
 
   return (
@@ -29,23 +33,23 @@ function AddBook() {
         <Form onSubmit={handleSubmit}>
           <Input
             label="Title"
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
+            onChange={(evt) => handleIputChange("title", evt.target.value)}
+            value={bookData.title}
             placeholder="Enter a Title"
           />
 
           <Input
             label="Author"
-            onChange={(e) => setAuthor(e.target.value)}
-            value={author}
+            onChange={(evt) => handleIputChange("author", evt.target.value)}
+            value={bookData.author}
             placeholder="Enter an Author"
           />
 
           <Input
             label="Rating"
             type="select"
-            onChange={(e) => setRating(e.target.value)}
-            value={rating}
+            onChange={(evt) => handleIputChange("rating", evt.target.value)}
+            value={bookData.rating}
           />
           <Button>Add A Book</Button>
         </Form>

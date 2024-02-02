@@ -27,9 +27,6 @@ function Provider({ children }) {
     setBooks(response.data);
   }, []);
 
-  //sorting function:
-
-  /*
   const searchBooks = async (term, id) => {
     const response = await axios.get(`http://localhost:3001/books/${id}`, {
       params: {
@@ -37,17 +34,17 @@ function Provider({ children }) {
       },
     });
 
-    const updatedBooks = books.map((book) => {
+    const updatedBooks = books.find((book) => {
       if (book.title === term) {
-        console.log(response);
+        console.log(updatedBooks);
       } else if (books.author === term) {
-        console.log(response);
+        console.log(updatedBooks);
       }
       return book;
     });
-    setBooks(updatedBooks);
+    //setBooks(updatedBooks);
   };
-*/
+
   const handleEditBookById = async (id, newTitle, newAuthor, newRating) => {
     const response = await axios.put(`http://localhost:3001/books/${id}`, {
       title: newTitle,
@@ -94,6 +91,7 @@ function Provider({ children }) {
         handleAddBook,
         handleDeleteBookById,
         fetchBooks,
+        searchBooks,
       }}
     >
       {children}
