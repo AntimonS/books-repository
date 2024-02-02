@@ -23,6 +23,12 @@
       "author": "I.B.Mažuranić",
       "rating": "Great",
       "id": 11
+    },
+    {
+      "title": "Trainspotting",
+      "author": "Irvin Welsh",
+      "rating": "Good",
+      "id": 12
     }
   ]
 }

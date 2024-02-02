@@ -12,6 +12,12 @@ function AddBook() {
     author: "",
     rating: "",
   });
+  const [didEdit, setDidEdit] = useState({
+    title: false,
+    author: false,
+    rating: false,
+  });
+  const titleInvalid = didEdit.title && bookData.title.length === 0;
 
   const handleIputChange = (identifier, value) => {
     setBookData((prevData) => ({
@@ -20,9 +26,21 @@ function AddBook() {
     }));
   };
 
+  const handleInputBlur = (identifier) => {
+    setDidEdit((prevEdit) => ({
+      ...prevEdit,
+      [identifier]: true,
+    }));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     handleAddBook(bookData.title, bookData.author, bookData.rating);
+    setBookData({
+      title: "",
+      author: "",
+      rating: "",
+    });
   };
 
   return (
@@ -36,8 +54,9 @@ function AddBook() {
             onChange={(evt) => handleIputChange("title", evt.target.value)}
             value={bookData.title}
             placeholder="Enter a Title"
+            onBlur={() => handleInputBlur("title")}
           />
-
+          <div>{titleInvalid && <p>title field must not be empty!</p>}</div>
           <Input
             label="Author"
             onChange={(evt) => handleIputChange("author", evt.target.value)}

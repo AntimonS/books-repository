@@ -31,7 +31,7 @@ function Input({ label, type = "text", ...props }) {
           {label}
         </label>
         <div>
-          <select {...props} className={inputCssStyle} id={label} required>
+          <select {...props} className={inputCssStyle} id={label}>
             <option value="">Rating</option>
             <option value="Bad">Bad</option>
             <option value="Good">Good</option>
