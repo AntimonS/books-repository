@@ -1,13 +1,6 @@
-import { useState } from "react";
 import TableBody from "./TableBody";
-import UseBooks from "../hooks/use-books";
-import BookEdit from "./BookEdit";
 
 function Table2() {
-  const { books } = UseBooks();
-  const [isEditing, setIsEditing] = useState(false);
-  const [sortOrder, setSortOrder] = useState(null);
-
   /*const compareByTitle = (a, b) => {
     const titleOrder = sortOrder === "asc" ? 1 : -1;
     return a.title.localeCompare(b.title) * titleOrder;
@@ -26,16 +19,6 @@ function Table2() {
   books.sort(compareByRating);
 */
   const tableDataCss = "px-3 border-separate border-4";
-
-  const handleEditClick = () => {
-    setIsEditing(true);
-  };
-
-  const handleSubmitEdit = () => {
-    setIsEditing(false);
-  };
-
-  isEditing && <BookEdit book={books} onSubmit={handleSubmitEdit} />;
 
   return (
     <div className="grid  grid-cols-1 justify-items-center">

@@ -6,15 +6,21 @@ import {
 } from "react-icons/go";
 import UseBooks from "../hooks/use-books";
 import { useState } from "react";
+import BookEdit from "./BookEdit";
 
 function TableBody({ tableDataCss }) {
-  const { handleDeleteBookById, handleEditBookById, books } = UseBooks();
+  const { handleDeleteBookById, books } = UseBooks();
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleEdit = () => {
+  const handleEditClick = () => {
     setIsEditing(true);
-    handleEditBookById();
   };
+
+  const handleSubmitEdit = () => {
+    setIsEditing(false);
+  };
+
+  isEditing && <BookEdit book={books} onSubmit={handleSubmitEdit} />;
 
   const tableBody = books.map((book) => {
     return (
@@ -24,9 +30,13 @@ function TableBody({ tableDataCss }) {
         <td className={tableDataCss}>{book.rating}</td>
 
         <td className="flex items-center">
-          <span className="p-4 cursor-pointer" onClick={() => handleEdit()}>
+          <span
+            className="p-4 cursor-pointer"
+            onClick={() => handleEditClick()}
+          >
             <GoPencil />
           </span>
+
           <span
             className="p-4 cursor-pointer"
             onClick={() => handleDeleteBookById(book.id)}

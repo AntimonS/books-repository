@@ -6,14 +6,26 @@ import Header from "./Header";
 import Form from "./Form";
 
 function BookEdit({ book, onSubmit }) {
-  const [title, setTitle] = useState(book.title);
-  const [author, setAuthor] = useState(book.author);
-  const [rating, setRating] = useState(book.rating);
   const { handleEditBookById } = UseBooks();
+
+  const [editValue, setEditValue] = useState({
+    title: book.title,
+    author: book.author,
+    rating: book.rating,
+  });
+
+  const handleEditChange = (identifier, value) => {
+    setEditValue((prevValue) => ({ ...prevValue, [identifier]: value }));
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleEditBookById(book.id, title, author, rating);
+    handleEditBookById(
+      book.id,
+      editValue.title,
+      editValue.author,
+      editValue.rating
+    );
     onSubmit();
   };
 
@@ -23,20 +35,23 @@ function BookEdit({ book, onSubmit }) {
       <div className=" flex justify-center ">
         <Form onSubmit={handleSubmit}>
           <Input
-            onChange={(e) => setTitle(e.target.value)}
-            value={title}
+            onChange={(evt) => handleEditChange("title", evt.target.value)}
+            value={setEditValue.title}
             label="Title"
+            name="title"
           />
 
           <Input
-            onChange={(e) => setAuthor(e.target.value)}
-            value={author}
+            onChange={(evt) => handleEditChange("author", evt.target.value)}
+            value={editValue.author}
             label="Author"
+            name="author"
           />
           <Input
-            onChange={(e) => setRating(e.target.value)}
-            value={rating}
+            onChange={(evt) => handleEditChange("rating", evt.target.value)}
+            value={editValue.rating}
             label="Rating"
+            name="rating"
           />
 
           <Button>Save</Button>
