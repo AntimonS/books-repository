@@ -9,7 +9,7 @@ function Link({ to, children, ...props }) {
   }
 
   const handleClick = (evt) => {
-    if (evt.metaKEy || evt.ctrlKey) {
+    if (evt.metaKey || evt.ctrlKey) {
       return;
     }
     evt.preventDefault();

@@ -1,22 +1,22 @@
 {
   "books": [
     {
-      "title": "Mjesečeva Palača ",
-      "author": "Paul Auster",
-      "rating": "Great",
-      "id": 10
-    },
-    {
-      "title": "Šuma Striborova",
-      "author": "I.B.Mažuranić",
-      "rating": "Great",
-      "id": 11
-    },
-    {
       "title": "Trainspotting",
       "author": "Irvin Welsh",
       "rating": "Good",
       "id": 12
+    },
+    {
+      "title": "Vlak1",
+      "author": "Lovrak",
+      "rating": "Good",
+      "id": 13
+    },
+    {
+      "title": "Vlak2",
+      "author": "krleža",
+      "rating": "Bad",
+      "id": 14
     }
   ]
 }

@@ -1,13 +1,15 @@
-import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
-import { useState } from "react";
-//import UseBooks from "../hooks/use-books";
+import { useState, useContext } from "react";
+import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import Table from "./Table";
+import SearchBar from "./SearchBar";
+import BooksContext from "../context/books";
 
 function SortableTable(props) {
+  const { books, term } = useContext(BooksContext);
+
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setSortBy] = useState(null);
-  const { config, books } = props;
-  //const { handleDeleteBookById, handleEditBookById } = UseBooks();
+  const { config } = props;
 
   const handleClick = (label) => {
     if (sortBy && label !== sortBy) {
@@ -15,6 +17,7 @@ function SortableTable(props) {
       setSortBy(label);
       return;
     }
+
     if (sortOrder === null) {
       setSortOrder("asc");
       setSortBy(label);
@@ -31,14 +34,15 @@ function SortableTable(props) {
     if (!column.sortValue) {
       return column;
     }
+
     return {
       ...column,
       header: () => (
         <th
-          className="cursor-pointer hover:bg-gray-100 text-2xl border-4"
+          className="cursor-pointer hover:bg-gray-100"
           onClick={() => handleClick(column.label)}
         >
-          <div className="flex items-center p-1">
+          <div className="flex items-center">
             {getIcons(column.label, sortBy, sortOrder)}
             {column.label}
           </div>
@@ -47,23 +51,42 @@ function SortableTable(props) {
     };
   });
 
-  let sortedBooks = books;
-
+  let sortedData = books;
   if (sortOrder && sortBy) {
     const { sortValue } = config.find((column) => column.label === sortBy);
-    sortedBooks = [...books].sort((a, b) => {
+    sortedData = [...books].sort((a, b) => {
       const valueA = sortValue(a);
       const valueB = sortValue(b);
-      const reversedOrder = sortOrder === "asc" ? 1 : -1;
+
+      const reverseOrder = sortOrder === "asc" ? 1 : -1;
 
       if (typeof valueA === "string") {
-        return valueA.localeCompare(valueB) * reversedOrder;
+        return valueA.localeCompare(valueB) * reverseOrder;
       } else {
-        return (valueA - valueB) * reversedOrder;
+        return (valueA - valueB) * reverseOrder;
       }
     });
   }
-  return <Table {...props} books={sortedBooks} config={updatedConfig} />;
+
+  if (term?.length > 0) {
+    sortedData = sortedData?.filter((book) => {
+      if (book.title.includes(term)) {
+        return true;
+      }
+      if (book.author.includes(term)) {
+        return true;
+      }
+
+      return false;
+    });
+  }
+
+  return (
+    <div>
+      <SearchBar />
+      <Table {...props} books={sortedData} config={updatedConfig} />
+    </div>
+  );
 }
 
 function getIcons(label, sortBy, sortOrder) {
@@ -75,6 +98,7 @@ function getIcons(label, sortBy, sortOrder) {
       </div>
     );
   }
+
   if (sortOrder === null) {
     return (
       <div>

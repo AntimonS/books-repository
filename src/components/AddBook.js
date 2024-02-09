@@ -1,27 +1,25 @@
-import UseBooks from "../hooks/use-books";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Input from "./Input";
 import Header from "./Header";
 import Form from "./Form";
 import Button from "./Button";
+import BooksContext from "../context/books";
 
 function AddBook() {
-  const { handleAddBook } = UseBooks();
+  const { handleAddBook } = useContext(BooksContext);
   const [bookData, setBookData] = useState({
     title: "",
     author: "",
     rating: "",
   });
-
-  /*
   const [didEdit, setDidEdit] = useState({
     title: false,
     author: false,
     rating: false,
-  });*/
-  const titleInvalid = bookData.title.trim() !== "";
-  const authorInvalid = bookData.author.length === 0;
-  const ratingInvalid = bookData.rating.length === 0;
+  });
+  const titleInvalid = didEdit.title && bookData.title.length === 0;
+  const authorInvalid = didEdit.author && bookData.author.length === 0;
+  const ratingInvalid = didEdit.rating && bookData.rating.length === 0;
 
   const handleIputChange = (identifier, value) => {
     setBookData((prevData) => ({
@@ -29,14 +27,14 @@ function AddBook() {
       [identifier]: value,
     }));
   };
-  /*
+
   const handleInputBlur = (identifier) => {
     setDidEdit((prevEdit) => ({
       ...prevEdit,
       [identifier]: true,
     }));
   };
-*/
+
   const handleSubmit = (e) => {
     e.preventDefault();
     handleAddBook(bookData.title, bookData.author, bookData.rating);
@@ -56,32 +54,29 @@ function AddBook() {
           <Input
             label="Title"
             onChange={(evt) => handleIputChange("title", evt.target.value)}
-            id={"title"}
             value={bookData.title}
             placeholder="Enter a Title"
-            name="title"
-            error={titleInvalid && "title field must not be empty!"}
-
-            // onBlur={() => handleInputBlur("title")}
+            onBlur={() => handleInputBlur("title")}
           />
+          <div>{titleInvalid && <p>title field must not be empty!</p>}</div>
           <Input
             label="Author"
             onChange={(evt) => handleIputChange("author", evt.target.value)}
-            id={"author"}
             value={bookData.author}
             placeholder="Enter an Author"
-            name="author"
-            error={authorInvalid && "author field must not be empty!"}
+            onBlur={() => handleInputBlur("author")}
           />
+          <div>{authorInvalid && <p>author field must not be empty!</p>}</div>
+
           <Input
             label="Rating"
             type="select"
-            id={"select"}
             onChange={(evt) => handleIputChange("rating", evt.target.value)}
             value={bookData.rating}
-            name="select"
-            error={ratingInvalid && "rating field must not be empty!"}
+            onBlur={() => handleInputBlur("rating")}
           />
+          <div>{ratingInvalid && <p>rating field must not be empty!</p>}</div>
+
           <Button>Add A Book</Button>
         </Form>
       </div>

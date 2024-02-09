@@ -1,17 +1,17 @@
-import { useState } from "react";
-import UseBooks from "../hooks/use-books";
+import { useState, useContext } from "react";
 import Button from "./Button";
 import Input from "./Input";
 import Header from "./Header";
 import Form from "./Form";
-
-function BookEdit({ book, onSubmit }) {
-  const { handleEditBookById } = UseBooks();
+import BooksContext from "../context/books";
+function BookEdit() {
+  const { handleEditBookById, editingBook, setEditingBook, navigate } =
+    useContext(BooksContext);
 
   const [editValue, setEditValue] = useState({
-    title: book.title,
-    author: book.author,
-    rating: book.rating,
+    title: editingBook?.title ?? "-",
+    author: editingBook?.author,
+    rating: editingBook?.rating,
   });
 
   const handleEditChange = (identifier, value) => {
@@ -21,12 +21,13 @@ function BookEdit({ book, onSubmit }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     handleEditBookById(
-      book.id,
+      editingBook.id,
       editValue.title,
       editValue.author,
       editValue.rating
     );
-    onSubmit();
+    navigate("/allBooks");
+    setEditingBook({});
   };
 
   return (
@@ -36,7 +37,7 @@ function BookEdit({ book, onSubmit }) {
         <Form onSubmit={handleSubmit}>
           <Input
             onChange={(evt) => handleEditChange("title", evt.target.value)}
-            value={setEditValue.title}
+            value={editValue.title}
             label="Title"
             name="title"
           />

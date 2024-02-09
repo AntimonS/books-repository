@@ -13,7 +13,13 @@ function Input({ label, id, error, type = "text", ...props }) {
         {label}
       </label>
       <div>
-        <input {...props} className={inputCssStyle} id={id} type={type} />
+        <input
+          {...props}
+          className={inputCssStyle}
+          id={id}
+          type={type}
+          required
+        />
       </div>
     </>
   );
@@ -25,7 +31,7 @@ function Input({ label, id, error, type = "text", ...props }) {
           {label}
         </label>
         <div>
-          <select {...props} className={inputCssStyle} id={id}>
+          <select {...props} className={inputCssStyle} id={id} required>
             <option value="">Rating</option>
             <option value="Bad">Bad</option>
             <option value="Good">Good</option>

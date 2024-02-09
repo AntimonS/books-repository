@@ -1,40 +1,39 @@
 import { Fragment } from "react";
-//import { useState } from "react";
 
 function Table({ config, keyFn, books }) {
-
-
   const renderedHeaders = config.map((columnConfig) => {
-    if (columnConfig.header && columnConfig.label !== "Actions") {
+    if (columnConfig.header) {
       return (
         <Fragment key={columnConfig.label}>{columnConfig.header()}</Fragment>
       );
     }
+    return <th key={columnConfig.label}>{columnConfig.label}</th>;
+  });
 
+  const renderedBooksData = books.map((rowData) => {
+    const renderedCells =
+      config &&
+      config.map((column) => (
+        <td key={column.label} className="p-2">
+          {column.render(rowData)}
+        </td>
+      ));
     return (
-      <th key={columnConfig.id} className="text-2xl border-4">
-        {columnConfig.label}
-      </th>
+      <tr className="border-b" key={keyFn(rowData)}>
+        {renderedCells}
+      </tr>
     );
   });
 
-  const renderedBooksInfo = books.map((rowData) => {
-    const renderedCells = config.map((column) => (
-      <td key={column.label} className="p-4 text-2xl border-2 shadow-md">
-        {column.render(rowData)}
-      </td>
-    ));
-
-    return <tr key={keyFn(rowData)}>{renderedCells}</tr>;
-  });
-
   return (
-    <table className="table-auto border-spacing-4">
-      <thead>
-        <tr>{renderedHeaders}</tr>
-      </thead>
-      <tbody>{renderedBooksInfo}</tbody>
-    </table>
+    <Fragment>
+      <table className="table-auto border-spacing-2">
+        <thead>
+          <tr className="border-b-2">{renderedHeaders}</tr>
+        </thead>
+        <tbody>{renderedBooksData}</tbody>
+      </table>
+    </Fragment>
   );
 }
 

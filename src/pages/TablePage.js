@@ -1,9 +1,10 @@
-import UseBooks from "../hooks/use-books";
-//import Table from "../components/Table";
+import { useContext } from "react";
+import BooksContext from "../context/books";
 import SortableTable from "../components/SortableTable";
 
 function TablePage() {
-  const { books } = UseBooks();
+  const { books, navigate, setEditingBook, handleDeleteBookById } =
+    useContext(BooksContext);
 
   const config = [
     {
@@ -23,16 +24,32 @@ function TablePage() {
     },
     {
       label: "Actions",
-      render: (book) => book.actions,
+      render: renderActions,
     },
   ];
 
+  function renderActions(book) {
+    return (
+      <div>
+        <button className="p-3" onClick={() => handleEdit(book)}>
+          edit
+        </button>
+        <button onClick={() => handleDeleteBookById(book.id)}>delete</button>
+      </div>
+    );
+  }
+
+  function handleEdit(book) {
+    setEditingBook(book);
+    navigate("/editBook");
+  }
+
   const keyFn = (book) => {
-    return book.id;
+    return book.title;
   };
 
   return (
-    <div className="flex flex-row justify-center">
+    <div>
       <SortableTable books={books} config={config} keyFn={keyFn} />
     </div>
   );
