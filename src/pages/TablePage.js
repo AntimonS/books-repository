@@ -1,3 +1,4 @@
+import { MdDelete, MdEdit } from "react-icons/md";
 import { useContext } from "react";
 import BooksContext from "../context/books";
 import SortableTable from "../components/SortableTable";
@@ -32,9 +33,11 @@ function TablePage() {
     return (
       <div>
         <button className="p-3" onClick={() => handleEdit(book)}>
-          edit
+          <MdEdit />
         </button>
-        <button onClick={() => handleDeleteBookById(book.id)}>delete</button>
+        <button onClick={() => handleDeleteBookById(book.id)}>
+          <MdDelete />
+        </button>
       </div>
     );
   }

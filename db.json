@@ -1,22 +1,16 @@
 {
   "books": [
     {
-      "title": "Trainspotting",
+      "title": "Trains",
       "author": "Irvin Welsh",
       "rating": "Good",
       "id": 12
     },
     {
-      "title": "Vlak1",
+      "title": "Vlak",
       "author": "Lovrak",
       "rating": "Good",
       "id": 13
-    },
-    {
-      "title": "Vlak2",
-      "author": "krleža",
-      "rating": "Bad",
-      "id": 14
     }
   ]
 }

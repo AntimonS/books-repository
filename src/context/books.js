@@ -2,6 +2,7 @@ import { createContext, useState, useCallback, useEffect } from "react";
 import axios from "axios";
 
 const BooksContext = createContext();
+const SERVICE_URL = "http://localhost:3001";
 
 function Provider({ children }) {
   const [books, setBooks] = useState([]);
@@ -23,23 +24,9 @@ function Provider({ children }) {
     window.history.pushState({}, "", to);
     setCurrentPath(to);
   };
-  /*
-  const searchBook = async (term) => {
-    const response = await axios.get(`http://localhost:3001/books/`);
-    return response?.data?.filter((book) => {
-      if (book.title.includes(term)) {
-        return true;
-      }
-      if (book.author.includes(term)) {
-        return true;
-      }
-
-      return false;
-    });
-  };*/
 
   const fetchBooks = useCallback(async () => {
-    const response = await axios.get("http://localhost:3001/books");
+    const response = await axios.get(SERVICE_URL + "/books");
     setBooks(response.data);
   }, []);
 

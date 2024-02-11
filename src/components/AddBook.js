@@ -53,6 +53,7 @@ function AddBook() {
         <Form onSubmit={handleSubmit}>
           <Input
             label="Title"
+            id="title"
             onChange={(evt) => handleIputChange("title", evt.target.value)}
             value={bookData.title}
             placeholder="Enter a Title"
@@ -61,6 +62,7 @@ function AddBook() {
           <div>{titleInvalid && <p>title field must not be empty!</p>}</div>
           <Input
             label="Author"
+            id="author"
             onChange={(evt) => handleIputChange("author", evt.target.value)}
             value={bookData.author}
             placeholder="Enter an Author"
@@ -70,6 +72,7 @@ function AddBook() {
 
           <Input
             label="Rating"
+            id="rating"
             type="select"
             onChange={(evt) => handleIputChange("rating", evt.target.value)}
             value={bookData.rating}

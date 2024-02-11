@@ -5,8 +5,8 @@ import AddBook from "./components/AddBook";
 import Route from "./components/Route";
 import Navbar from "./components/Navbar";
 import BookList from "./components/BookList";
-import SearchBar from "./components/SearchBar";
 import BookEdit from "./components/BookEdit";
+import SearchBar2 from "./components/SearchBar2";
 
 export default function App() {
   const { fetchBooks } = useContext(BooksContext);
@@ -26,11 +26,11 @@ export default function App() {
           <BookList />
         </Route>
       </div>
-      <Route path="/searchBooks">
-        <SearchBar />
-      </Route>
       <Route path="/editBook">
         <BookEdit />
+      </Route>
+      <Route path="/searchBooks">
+        <SearchBar2 />
       </Route>
     </div>
   );
