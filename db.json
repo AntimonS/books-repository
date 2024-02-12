@@ -1,16 +1,22 @@
 {
   "books": [
     {
-      "title": "Trains",
+      "title": "Trainspotting",
       "author": "Irvin Welsh",
       "rating": "Good",
       "id": 12
     },
     {
-      "title": "Vlak",
-      "author": "Lovrak",
-      "rating": "Good",
-      "id": 13
+      "title": "Timbuktu",
+      "author": "Paul Auster",
+      "rating": "Great",
+      "id": 14
+    },
+    {
+      "title": "Harry Potter",
+      "author": "J.K.Rowling",
+      "rating": "Great",
+      "id": 15
     }
   ]
 }

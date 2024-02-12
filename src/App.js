@@ -1,12 +1,12 @@
 import "./index.css";
 import { useEffect, useContext } from "react";
 import BooksContext from "./context/books";
-import AddBook from "./components/AddBook";
+import AddBook from "./pages/AddBook";
 import Route from "./components/Route";
 import Navbar from "./components/Navbar";
-import BookList from "./components/BookList";
-import BookEdit from "./components/BookEdit";
-import SearchBar2 from "./components/SearchBar2";
+import BookList from "./pages/BookList";
+import BookEdit from "./pages/BookEdit";
+import SearchBar from "./pages/SearchBar";
 
 export default function App() {
   const { fetchBooks } = useContext(BooksContext);
@@ -30,7 +30,7 @@ export default function App() {
         <BookEdit />
       </Route>
       <Route path="/searchBooks">
-        <SearchBar2 />
+        <SearchBar />
       </Route>
     </div>
   );

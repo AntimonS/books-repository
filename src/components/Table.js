@@ -27,12 +27,16 @@ function Table({ config, keyFn, books }) {
 
   return (
     <Fragment>
-      <table className="table-auto border-spacing-2">
-        <thead>
-          <tr className="border-b-2">{renderedHeaders}</tr>
-        </thead>
-        <tbody>{renderedBooksData}</tbody>
-      </table>
+      <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <table className="w-full text-xl text-left rtl:text-right text-gray-500 dark:text-gray-400">
+          <thead className="text-xl text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+              {renderedHeaders}
+            </tr>
+          </thead>
+          <tbody>{renderedBooksData}</tbody>
+        </table>
+      </div>
     </Fragment>
   );
 }

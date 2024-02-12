@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import Input from "./Input";
-import Header from "./Header";
-import Form from "./Form";
-import Button from "./Button";
+import Input from "../components/Input";
+import Header from "../components/Header";
+import Form from "../components/Form";
+import Button from "../components/Button";
 import BooksContext from "../context/books";
 
 function AddBook() {
@@ -52,7 +52,7 @@ function AddBook() {
       <div className=" flex justify-center ">
         <Form onSubmit={handleSubmit}>
           <Input
-            label="Title"
+            label="Title*"
             id="title"
             onChange={(evt) => handleIputChange("title", evt.target.value)}
             value={bookData.title}
@@ -61,7 +61,7 @@ function AddBook() {
           />
           <div>{titleInvalid && <p>title field must not be empty!</p>}</div>
           <Input
-            label="Author"
+            label="Author*"
             id="author"
             onChange={(evt) => handleIputChange("author", evt.target.value)}
             value={bookData.author}
@@ -69,7 +69,6 @@ function AddBook() {
             onBlur={() => handleInputBlur("author")}
           />
           <div>{authorInvalid && <p>author field must not be empty!</p>}</div>
-
           <Input
             label="Rating"
             id="rating"
@@ -79,7 +78,6 @@ function AddBook() {
             onBlur={() => handleInputBlur("rating")}
           />
           <div>{ratingInvalid && <p>rating field must not be empty!</p>}</div>
-
           <Button>Add A Book</Button>
         </Form>
       </div>

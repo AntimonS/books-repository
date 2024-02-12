@@ -1,11 +1,10 @@
 import { useState, useContext } from "react";
 import { GoTriangleUp, GoTriangleDown } from "react-icons/go";
 import Table from "./Table";
-import SearchBar from "./SearchBar";
 import BooksContext from "../context/books";
 
 function SortableTable(props) {
-  const { books, term } = useContext(BooksContext);
+  const { books } = useContext(BooksContext);
 
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setSortBy] = useState(null);
@@ -68,22 +67,8 @@ function SortableTable(props) {
     });
   }
 
-  if (term?.length > 0) {
-    sortedData = sortedData?.filter((book) => {
-      if (book.title.includes(term)) {
-        return true;
-      }
-      if (book.author.includes(term)) {
-        return true;
-      }
-
-      return false;
-    });
-  }
-
   return (
     <div>
-      <SearchBar />
       <Table {...props} books={sortedData} config={updatedConfig} />
     </div>
   );

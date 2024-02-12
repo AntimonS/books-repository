@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useState, useRef } from "react";
-import Input from "./Input";
-import Form from "./Form";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import Form from "../components/Form";
 import BookCard from "./BookCard";
+import Header from "../components/Header";
 
-function SearchBar2() {
+function SearchBar() {
   const [bookData, setBookData] = useState("");
   const [foundBook, setFoundBook] = useState({});
   const bookCard = useRef();
@@ -31,25 +33,28 @@ function SearchBar2() {
   };
 
   return (
-    <div>
-      <Form onSubmit={handleSubmit}>
-        <Input
-          label="browse books"
-          id="browse books"
-          value={bookData}
-          onChange={handleChange}
-        />
-        <button>Submit</button>
-      </Form>
-
+    <>
+      <Header header="Search" />
+      <div className="grid justify-items-center ">
+        <Form onSubmit={handleSubmit}>
+          <Input
+            id="search"
+            value={bookData}
+            onChange={handleChange}
+            placeholder="Search..."
+          />
+          <Button className="w-42 h-10 py-1">Search</Button>
+        </Form>
+      </div>
       <BookCard
         ref={bookCard}
         title={foundBook.title}
         author={foundBook.author}
         rating={foundBook.rating}
       />
-    </div>
+    </>
   );
 }
 
-export default SearchBar2;
+export default SearchBar;
+<div></div>;

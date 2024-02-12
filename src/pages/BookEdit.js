@@ -1,8 +1,8 @@
 import { useState, useContext } from "react";
-import Button from "./Button";
-import Input from "./Input";
-import Header from "./Header";
-import Form from "./Form";
+import Button from "../components/Button";
+import Input from "../components/Input";
+import Header from "../components/Header";
+import Form from "../components/Form";
 import BooksContext from "../context/books";
 function BookEdit() {
   const { handleEditBookById, editingBook, setEditingBook, navigate } =
